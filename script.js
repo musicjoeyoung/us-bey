@@ -3,10 +3,6 @@ let detailsBox = document.getElementById("details-box");
 const audio = new Audio("This-Ain't-Texas.mp3");
 const audioTX = new Audio("That's-Texas.mp3");
 
-const instructions = () => {
-  alert("Now you can hover over the states--have your volume up!");
-};
-
 document.addEventListener("mouseover", function (e) {
   if (e.target.tagName.toLowerCase() === "path") {
     let content = e.target.dataset.name;
@@ -40,3 +36,26 @@ audioTX.isPlaying = false;
 
 audio.onended = () => (audio.isPlaying = false);
 audioTX.onended = () => (audioTX.isPlaying = false);
+
+let modal = document.getElementById("myModal");
+
+let btn = document.getElementById("myBtn");
+
+let span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+window.onload = function () {
+  btn.click();
+};
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
